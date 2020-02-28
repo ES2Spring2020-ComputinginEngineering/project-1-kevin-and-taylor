@@ -3,9 +3,8 @@
 #################
 
 import microbit as mb
-import radio  # Needs to be imported separately
+import radio
 
-# Change the channel if other microbits are interfering. (Default=7)
 radio.on()  # Turn on radio
 radio.config(channel=9, length=100)
 
@@ -19,19 +18,15 @@ radio.send('start') # Send the word 'start' to start the receiver
 mb.sleep(1000)
 mb.display.show(mb.Image.HEART)  # Display Heart while logging
 
-
-# Read and send accelerometer data repeatedly until button A is pressed again
 while not mb.button_a.is_pressed():
-    ######################################################
-    # FILL In HERE
-    # Need to collect accelerometer and time measurements
-    # Need to format into a single string
-    # Send the string over the radio
-    ######################################################
-
-    radio.send(message)
-    mb.sleep(10)
-
-
+#     if true, every 10 ms, it generates a string with time elapsed
+#     and acceleration in X, Y and Z, in that order
+    t = str((mb.running_time ()))
+    x = str((mb.accelerometer.get_x()))
+    y = str((mb.accelerometer.get_y()))
+    z = str((mb.accelerometer.get_z()))
+    transmission = (t + ',' + x + ',' + y + ',' + z)
+    radio.send (transmission)
+    mb.sleep (10)
 
 mb.display.show(mb.Image.SQUARE)  # Display Square when program ends
