@@ -7,7 +7,7 @@ import radio  # Needs to be imported separately
 
 # Change the channel if other microbits are interfering. (Default=7)
 radio.on()  # Turn on radio
-radio.config(channel=7, length=100)
+radio.config(channel=9, length=100)
 
 print('Program Started')
 mb.display.show(mb.Image.HAPPY)
