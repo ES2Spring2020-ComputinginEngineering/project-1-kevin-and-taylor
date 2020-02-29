@@ -1,5 +1,9 @@
 ##################
-# FILL IN HEADER
+#ES2 Project 1
+#receiver.py
+#NAME: Taylor Kishinami, Kevin Zhang
+#HOURS NEEDED: 1
+#We worked alone on this part.
 #################
 
 import microbit as mb
@@ -28,5 +32,5 @@ while not mb.button_a.is_pressed():
     transmission = (t + ',' + x + ',' + y + ',' + z)
     radio.send (transmission)
     mb.sleep (10)
-radio.send('finish')
+
 mb.display.show(mb.Image.SQUARE)  # Display Square when program ends

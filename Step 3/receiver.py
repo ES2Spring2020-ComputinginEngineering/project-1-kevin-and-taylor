@@ -41,5 +41,5 @@ while True:
     if incoming is not None: # message was received
         plot (incoming)
         mb.display.show(mb.Image.HEART, delay=10, clear=True, wait=False)
-    if incoming == 'finish': #waits for finish message to indicate transmission over
-        mb.display.show(mb.Image.CONFUSED)
+
+mb.display.show(mb.Image.CONFUSED) # shows transmission is finished
