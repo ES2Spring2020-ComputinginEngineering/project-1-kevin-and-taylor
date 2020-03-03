@@ -31,6 +31,6 @@ while not mb.button_a.is_pressed():
     z = str((mb.accelerometer.get_z()))
     transmission = (t + ',' + x + ',' + y + ',' + z)
     radio.send (transmission)
-    mb.sleep (10)
+    mb.sleep (15)
 
 mb.display.show(mb.Image.SQUARE)  # Display Square when program ends

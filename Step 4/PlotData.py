@@ -47,4 +47,8 @@ def plotdata (filename, lowerbound, upperbound):
     plt.ylabel('Angle (radians)')
     plt.show()
 
-plotdata ("19DATAPENDULUMFINAL.csv",8,12)
+#plotdata ('19DATAPENDULUM.csv',8,12)
+#plotdata ('17DATAPENDULUM.csv',8,12)
+#plotdata ('15DATAPENDULUM.csv',8,12)
+#plotdata ('13DATAPENDULUM.csv',8,12)
+plotdata ('11DATAPENDULUM.csv',8,12)
