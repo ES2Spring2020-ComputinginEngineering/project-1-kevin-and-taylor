@@ -31,7 +31,7 @@ def average (array):
 #It then uses Scipy Signal Library functions to pick out the peaks every 25 data points, and records the timestamp of each peak
 #It then averages it out to calculate the average period.
 #It returns a list of lists containing the time, x acc, y acc, theta, and the average period.
-def parsedata (filename, lowerbound, upperbound):
+def parsedata (filename):
     t=[] 
     x=[]
     y=[]
@@ -41,15 +41,15 @@ def parsedata (filename, lowerbound, upperbound):
         for row in plots:
             if not(len(row[0]) == 0): 
                 seconds = float(row[0])/1000
-                if lowerbound <= seconds <= upperbound:
-                    t.append(seconds) 
-                    x_accel = float(row[1])
-                    x.append(x_accel/1000*386.2)
-                    y_accel = float(row[2])/1000*386.2
-                    y.append(y_accel/1000*386.2)
-                    z_accel = float(row[3])
-                    x_angle = math.atan2(x_accel,math.sqrt((y_accel ** 2) + (z_accel ** 2)))
-                    theta.append (x_angle) 
+#                if lowerbound <= seconds <= upperbound:
+                t.append(seconds) 
+                x_accel = float(row[1])
+                x.append(x_accel/1000*386.2)
+                y_accel = float(row[2])/1000*386.2
+                y.append(y_accel/1000*386.2)
+                z_accel = float(row[3])
+                x_angle = math.atan2(x_accel,math.sqrt((y_accel ** 2) + (z_accel ** 2)))
+                theta.append (x_angle) 
         theta_array = np.array(theta)
         theta_filt = sig.medfilt(theta_array)
         theta_peaks,_ = sig.find_peaks (theta_filt, distance=25)
@@ -65,7 +65,7 @@ def graphdata ():
     lemgths = [19,17,15,13,11]
     periods = []
     
-    parseddata = parsedata ('19DATAPENDULUM.csv',10,18)
+    parseddata = parsedata ('19DATAPENDULUM.csv')
     t = parseddata [0]
     x = parseddata [1]
     y = parseddata [2]
@@ -79,7 +79,7 @@ def graphdata ():
     ax3.plot(t,theta)
     ax3.set_title('Time vs Theta')
     
-    parseddata = parsedata ('17DATAPENDULUM.csv',10,18)
+    parseddata = parsedata ('17DATAPENDULUM.csv')
     t = parseddata [0]
     x = parseddata [1]
     y = parseddata [2]
@@ -93,7 +93,7 @@ def graphdata ():
     ax3.plot(t,theta)
     ax3.set_title('Time vs Theta')
     
-    parseddata = parsedata ('15DATAPENDULUM.csv',10,18)
+    parseddata = parsedata ('15DATAPENDULUM.csv')
     t = parseddata [0]
     x = parseddata [1]
     y = parseddata [2]
@@ -107,7 +107,7 @@ def graphdata ():
     ax3.plot(t,theta)
     ax3.set_title('Time vs Theta')
     
-    parseddata = parsedata ('13DATAPENDULUM.csv',12,18)
+    parseddata = parsedata ('13DATAPENDULUM.csv')
     t = parseddata [0]
     x = parseddata [1]
     y = parseddata [2]
@@ -121,7 +121,7 @@ def graphdata ():
     ax3.plot(t,theta)
     ax3.set_title('Time vs Theta')
     
-    parseddata = parsedata ('11DATAPENDULUM.csv',10,18)
+    parseddata = parsedata ('11DATAPENDULUM.csv')
     t = parseddata [0]
     x = parseddata [1]
     y = parseddata [2]
