@@ -2,7 +2,7 @@
 #ES2 Project 1
 #receiver.py
 #NAME: Taylor Kishinami, Kevin Zhang
-#HOURS NEEDED: 1
+#HOURS NEEDED: 0.25
 #We worked alone on this part.
 #################
 #This segment of code takes the 5 lengths of our pendulum (in inches) and calculates the corresponding theoretical period of each length.
