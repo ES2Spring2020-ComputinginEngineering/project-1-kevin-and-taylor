@@ -1,3 +1,10 @@
+##################
+#ES2 Project 1
+#receiver.py
+#NAME: Taylor Kishinami, Kevin Zhang
+#HOURS NEEDED: 1
+#We worked alone on this part.
+#################
 #This segment of code takes the 5 lengths of our pendulum (in inches) and calculates the corresponding theoretical period of each length.
 #It uses the function find_time to do so, which takes the array of the lengths as a parameter and returns arrtime, an array of those period times.
 #It then plots arrlength vs arrtime to create a graph of Length vs Theoretical period of the pendulum.
