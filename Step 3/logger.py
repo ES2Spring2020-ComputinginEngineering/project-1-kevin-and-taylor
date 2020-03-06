@@ -5,7 +5,10 @@
 #HOURS NEEDED: 1
 #We worked alone on this part.
 #################
-
+#This segment of code orients the microbit radio to channel 9, then displays a happy face to indicate it is ready to begin transmissions.
+#When A is pressed, it begins transmitting a string containing the time, acc x, acc y, and acc z values separated by a comma every 10 ms.
+#At this point, we run the pendulum, then the transmissions end when the A button is pressed again.
+#The square indicates that it has finished transmitting.
 import microbit as mb
 import radio
 
