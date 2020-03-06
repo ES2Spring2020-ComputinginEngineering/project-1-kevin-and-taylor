@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 ##################
 #ES2 Project 1
-#receiver.py
+#Step 4
 #NAME: Taylor Kishinami, Kevin Zhang
-#HOURS NEEDED: 4
+#HOURS NEEDED: 6
 #We worked alone on this part.
 #################
 
@@ -14,8 +14,8 @@ import csv
 import scipy.signal as sig
 
 def average (array):
-    # takes an array and finds the average distance between indices of said array
-    # used to calculate average period length 
+    # The function average takes an array and finds the average distance between indices of said array
+    # It is used to calculate average period length 
     differences = []
     arraylist = list(array)
     i = 1
@@ -26,12 +26,12 @@ def average (array):
         array2 = np.array(differences)
         return (np.average(array2))
     
-#The function parsedata takes one parameter, the filename, and parses the csv file into lists of time, acc x, accy, and theta values.
-#It takes the acceleration values at each point in time to calculate the instantaneous theta and appends it to the list of theta values. 
-#It then uses Scipy Signal Library functions to pick out the peaks every 25 data points, and records the timestamp of each peak
-#It then averages it out to calculate the average period.
-#It returns a list of lists containing the time, x acc, y acc, theta, and the average period.
 def parsedata (filename):
+    #The function parsedata takes one parameter, the filename, and parses the csv file into lists of time, acc x, accy, and theta values.
+    #It takes the acceleration values at each point in time to calculate the instantaneous theta and appends it to the list of theta values. 
+    #It then uses Scipy Signal Library functions to pick out the peaks every 25 data points, and records the timestamp of each peak
+    #It then averages it out to calculate the average period.
+    #It returns a list of lists containing the time, x acc, y acc, theta, and the average period.
     t=[] 
     x=[]
     y=[]
@@ -41,7 +41,6 @@ def parsedata (filename):
         for row in plots:
             if not(len(row[0]) == 0): 
                 seconds = float(row[0])/1000
-#                if lowerbound <= seconds <= upperbound:
                 t.append(seconds) 
                 x_accel = float(row[1])
                 x.append(x_accel/1000*386.2)
@@ -58,10 +57,10 @@ def parsedata (filename):
         results = [time, x, y, theta, average(time_peaks)]
         return results
 
-#The function graphdata takes no parameters, and calls the returned lists of parsedata to graph time vs x acc, y acc, and theta, respectively.
-#It graphs the subplots: Time vs x acc, Time vs y acc, and Time vs theta for each data set. 
-#It appends each length's average period to the list periods, and lastly, uses it for graphing Length vs Period
 def graphdata ():
+    #The function graphdata takes no parameters, and calls the returned lists of parsedata to graph time vs x acc, y acc, and theta, respectively.
+    #It graphs the subplots: Time vs x acc, Time vs y acc, and Time vs theta for each data set. 
+    #It appends each length's average period to the list periods, and lastly, uses it for graphing Length vs Period
     lemgths = [19,17,15,13,11]
     periods = []
     
@@ -73,11 +72,11 @@ def graphdata ():
     periods.append(parseddata [4])
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
-    ax1.set_title('Time vs X-Acc')
+    ax1.set_title('Time vs X-Acc, Length = 19"')
     ax2.plot(t, y, 'tab:orange')
-    ax2.set_title('Time vs Y-Acc')
+    ax2.set_title('Time vs Y-Acc, Length = 19"')
     ax3.plot(t,theta)
-    ax3.set_title('Time vs Theta')
+    ax3.set_title('Time vs Theta, Length = 19"')
     
     parseddata = parsedata ('17DATAPENDULUM.csv')
     t = parseddata [0]
@@ -87,11 +86,11 @@ def graphdata ():
     periods.append(parseddata [4])
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
-    ax1.set_title('Time vs X-Acc')
+    ax1.set_title('Time vs X-Acc, Length = 17"')
     ax2.plot(t, y, 'tab:orange')
-    ax2.set_title('Time vs Y-Acc')
+    ax2.set_title('Time vs Y-Acc, Length = 17"')
     ax3.plot(t,theta)
-    ax3.set_title('Time vs Theta')
+    ax3.set_title('Time vs Theta, Length = 17"')
     
     parseddata = parsedata ('15DATAPENDULUM.csv')
     t = parseddata [0]
@@ -101,11 +100,11 @@ def graphdata ():
     periods.append(parseddata [4])
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
-    ax1.set_title('Time vs X-Acc')
+    ax1.set_title('Time vs X-Acc, Length = 15"')
     ax2.plot(t, y, 'tab:orange')
-    ax2.set_title('Time vs Y-Acc')
+    ax2.set_title('Time vs Y-Acc, Length = 15"')
     ax3.plot(t,theta)
-    ax3.set_title('Time vs Theta')
+    ax3.set_title('Time vs Theta, Length = 15"')
     
     parseddata = parsedata ('13DATAPENDULUM.csv')
     t = parseddata [0]
@@ -115,11 +114,11 @@ def graphdata ():
     periods.append(parseddata [4])
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
-    ax1.set_title('Time vs X-Acc')
+    ax1.set_title('Time vs X-Acc, Length = 13"')
     ax2.plot(t, y, 'tab:orange')
-    ax2.set_title('Time vs Y-Acc')
+    ax2.set_title('Time vs Y-Acc, Length = 13"')
     ax3.plot(t,theta)
-    ax3.set_title('Time vs Theta')
+    ax3.set_title('Time vs Theta, Length = 13"')
     
     parseddata = parsedata ('11DATAPENDULUM.csv')
     t = parseddata [0]
@@ -129,17 +128,21 @@ def graphdata ():
     periods.append(parseddata [4])
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
-    ax1.set_title('Time vs X-Acc')
+    ax1.set_title('Time vs X-Acc, Length = 11"')
     ax2.plot(t, y, 'tab:orange')
-    ax2.set_title('Time vs Y-Acc')
+    ax2.set_title('Time vs Y-Acc, Length = 11"')
     ax3.plot(t,theta)
-    ax3.set_title('Time vs Theta')
+    ax3.set_title('Time vs Theta, Length = 11"')
+
     
     plt.figure()
+    plt.title('Length vs. Average Period Time')
     plt.plot(lemgths, periods)
     plt.plot(lemgths, periods, 'b.')
+    plt.xlabel('Length (in)')
+    plt.ylabel('Time (sec)')
     plt.show()
     
-# MAIN SCRIPT (REEEEEEE)
+# MAIN SCRIPT
     
 graphdata ()
