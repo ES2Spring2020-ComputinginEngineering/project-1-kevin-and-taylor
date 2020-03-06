@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
-#INSERT HEADER
+##################
+#ES2 Project 1
+#receiver.py
+#NAME: Taylor Kishinami, Kevin Zhang
+#HOURS NEEDED: 4
+#We worked alone on this part.
+#################
 
 import numpy as np
 import math
@@ -20,7 +26,11 @@ def average (array):
         array2 = np.array(differences)
         return (np.average(array2))
     
-#REMEMBER TO COMMENT (AND LIKE AND SUBSCRIBE AND SMASH THAT BELL)
+#The function parsedata takes one parameter, the filename, and parses the csv file into lists of time, acc x, accy, and theta values.
+#It takes the acceleration values at each point in time to calculate the instantaneous theta and appends it to the list of theta values. 
+#It then uses Scipy Signal Library functions to pick out the peaks every 25 data points, and records the timestamp of each peak
+#It then averages it out to calculate the average period.
+#It returns a list of lists containing the time, x acc, y acc, theta, and the average period.
 def parsedata (filename, lowerbound, upperbound):
     t=[] 
     x=[]
@@ -48,7 +58,9 @@ def parsedata (filename, lowerbound, upperbound):
         results = [time, x, y, theta, average(time_peaks)]
         return results
 
-
+#The function graphdata takes no parameters, and calls the returned lists of parsedata to graph time vs x acc, y acc, and theta, respectively.
+#It graphs the subplots: Time vs x acc, Time vs y acc, and Time vs theta for each data set. 
+#It appends each length's average period to the list periods, and lastly, uses it for graphing Length vs Period
 def graphdata ():
     lemgths = [19,17,15,13,11]
     periods = []
