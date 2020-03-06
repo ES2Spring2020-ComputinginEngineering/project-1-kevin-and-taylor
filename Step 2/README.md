@@ -1,5 +1,6 @@
-# Project1 Part 2 Goes Here
-
+#This segment of code takes the 5 lengths of our pendulum (in inches) and calculates the corresponding theoretical period of each length.
+#It uses the function find_time to do so, which takes the array of the lengths as a parameter and returns arrtime, an array of those period times.
+#It then plots arrlength vs arrtime to create a graph of Length vs Theoretical period of the pendulum.
 import numpy as np
 
 import matplotlib.pyplot as plt
