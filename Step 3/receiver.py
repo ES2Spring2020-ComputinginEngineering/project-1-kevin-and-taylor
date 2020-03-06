@@ -5,7 +5,10 @@
 #HOURS NEEDED: 3
 #We received help from Andrew on Piazza.
 #################
-
+#This segment of code tunes into the same channel as the pendulum logger microbit. 
+#It takes the string transmission recieved via radio and uses function plot to transform the string parameter 'transmission' into a tuple for the MU plotter.
+#While it is waiting for transmission input, it displays a square. When it is recieving, it displays a heart every 10 ms (for each incoming message)
+#After it has stopped recieving transmissions, it displays a confused face. 
 import microbit as mb
 import radio
 
