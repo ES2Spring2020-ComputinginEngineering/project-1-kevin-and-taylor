@@ -25,7 +25,7 @@ def average (array):
     else:
         array2 = np.array(differences)
         return (np.average(array2))
-    
+
 def parsedata (filename):
     #The function parsedata takes one parameter, the filename, and parses the csv file into lists of time, acc x, accy, and theta values.
     #It takes the acceleration values at each point in time to calculate the instantaneous theta and appends it to the list of theta values. 
@@ -73,10 +73,14 @@ def graphdata ():
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
     ax1.set_title('Time vs X-Acc, Length = 19"')
+    ax1.set_ylabel ('Acceleration (in/s^2)')
     ax2.plot(t, y, 'tab:orange')
     ax2.set_title('Time vs Y-Acc, Length = 19"')
+    ax2.set_ylabel ('Acceleration (in/s^2)')
     ax3.plot(t,theta)
     ax3.set_title('Time vs Theta, Length = 19"')
+    ax3.set_ylabel ('Theta (rad)')
+    plt.xlabel('Time (s)')
     
     parseddata = parsedata ('17DATAPENDULUM.csv')
     t = parseddata [0]
@@ -87,10 +91,14 @@ def graphdata ():
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
     ax1.set_title('Time vs X-Acc, Length = 17"')
+    ax1.set_ylabel ('Acceleration (in/s^2)')    
     ax2.plot(t, y, 'tab:orange')
     ax2.set_title('Time vs Y-Acc, Length = 17"')
+    ax2.set_ylabel ('Acceleration (in/s^2)')
     ax3.plot(t,theta)
     ax3.set_title('Time vs Theta, Length = 17"')
+    ax3.set_ylabel ('Theta (rad)')
+    plt.xlabel('Time (s)')
     
     parseddata = parsedata ('15DATAPENDULUM.csv')
     t = parseddata [0]
@@ -101,10 +109,14 @@ def graphdata ():
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
     ax1.set_title('Time vs X-Acc, Length = 15"')
+    ax1.set_ylabel ('Acceleration (in/s^2)')    
     ax2.plot(t, y, 'tab:orange')
     ax2.set_title('Time vs Y-Acc, Length = 15"')
+    ax2.set_ylabel ('Acceleration (in/s^2)')
     ax3.plot(t,theta)
     ax3.set_title('Time vs Theta, Length = 15"')
+    ax3.set_ylabel ('Theta (rad)')
+    plt.xlabel('Time (s)')
     
     parseddata = parsedata ('13DATAPENDULUM.csv')
     t = parseddata [0]
@@ -115,10 +127,14 @@ def graphdata ():
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
     ax1.set_title('Time vs X-Acc, Length = 13"')
+    ax1.set_ylabel ('Acceleration (in/s^2)')    
     ax2.plot(t, y, 'tab:orange')
     ax2.set_title('Time vs Y-Acc, Length = 13"')
+    ax2.set_ylabel ('Acceleration (in/s^2)')
     ax3.plot(t,theta)
     ax3.set_title('Time vs Theta, Length = 13"')
+    ax3.set_ylabel ('Theta (rad)')
+    plt.xlabel('Time (s)')
     
     parseddata = parsedata ('11DATAPENDULUM.csv')
     t = parseddata [0]
@@ -129,16 +145,20 @@ def graphdata ():
     fig, (ax1, ax2, ax3) = plt.subplots(3, figsize = [9,6],sharex=True)
     ax1.plot(t, x)
     ax1.set_title('Time vs X-Acc, Length = 11"')
+    ax1.set_ylabel ('Acceleration (in/s^2)')    
     ax2.plot(t, y, 'tab:orange')
     ax2.set_title('Time vs Y-Acc, Length = 11"')
+    ax2.set_ylabel ('Acceleration (in/s^2)')
     ax3.plot(t,theta)
     ax3.set_title('Time vs Theta, Length = 11"')
-
+    ax3.set_ylabel ('Theta (rad)')
+    plt.xlabel('Time (s)')
     
     plt.figure()
     plt.title('Length vs. Average Period Time')
     plt.plot(lemgths, periods)
     plt.plot(lemgths, periods, 'b.')
+    plt.ylim(0,1.5)
     plt.xlabel('Length (in)')
     plt.ylabel('Time (sec)')
     plt.show()
