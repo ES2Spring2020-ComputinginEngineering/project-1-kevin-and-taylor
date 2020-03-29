@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 import math
 
-lengths = [11,13,15,19]
+lengths = [11,13,15,17,19]
 
 arrlength = np.array (lengths)
 
