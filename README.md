@@ -1,8 +1,8 @@
 # Project1
 Project 1 Starter Code
 
-Names:
-Team Name:
+Names: Taylor Kishinami, Kevin Zhang
+Team Name: pendulum gang?
 
 Your primary tasks will be to:
 
