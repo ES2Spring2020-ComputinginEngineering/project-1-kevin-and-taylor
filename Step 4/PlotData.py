@@ -158,7 +158,7 @@ def graphdata ():
     plt.title('Length vs. Average Period Time')
     plt.plot(lemgths, periods)
     plt.plot(lemgths, periods, 'b.')
-    plt.ylim(0,1.5)
+    plt.ylim(1.05,1.5)
     plt.xlabel('Length (in)')
     plt.ylabel('Time (sec)')
     plt.show()
