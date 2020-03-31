@@ -26,3 +26,7 @@ def find_time (arrlength):
     return arrtime 
 
 plt.plot (arrlength, find_time (arrlength))
+plt.title('Lengths vs Periods')
+plt.xlabel ('Lengths (in)')
+plt.ylabel ('Periods (s)')
+plt.show()
