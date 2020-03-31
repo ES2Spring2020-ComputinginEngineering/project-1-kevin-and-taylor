@@ -17,8 +17,8 @@ def update_system (pos, vel, time1, time2, length):
     # it calculates the next acceleration, velocity and position in that order using physics equations
     # it then returns these values
     dt = time2-time1
-    accNext = (-386 / length) * math.sin(pos)    
-    velNext = vel + (accNext * dt)
+    accNext = (-386 / length) * (math.sin(pos)) 
+    velNext = (vel + (accNext * dt))*0.998
     posNext = pos + (velNext * dt) 
     return posNext,velNext, accNext
 
@@ -34,7 +34,24 @@ def average (array):
     else:
         array2 = np.array(differences)
         return (np.average(array2))
-    
+
+periodlist = []
+lengthslist = [11,13,15,17,19]
+#This initializes periods as an empty list 
+#It also initializes the lengths as a list
+#It will be used to track and plot the calculated periods to their respective lengths
+def periodlengths():
+    #periodlengths takes no input
+    #it graphs the simulation-solved periods over the lengths of the pendulum
+    #it then displays that graph
+    #It returns no value
+    plt.figure(figsize=(9,6))
+    plt.plot(lengthslist,periodlist)
+    plt.title('Lengths vs Periods')
+    plt.xlabel ('Lengths (in)')
+    plt.ylabel ('Periods (s)')
+    plt.show()
+ 
 def simulate (length):
     # simulate takes one imput: the length of the pendulum in inches
     # it initializes lists for position, velocity and acceleration, and generates an array of time values
@@ -66,6 +83,7 @@ def simulate (length):
     pos_peaks,_ = sig.find_peaks (pos)
     peak_time = time[pos_peaks]
     period = average(peak_time)
+    periodlist.append(period)
     print('Period when length = ' + str(length) + ' in : ' + str(period) + ' sec')
     return
 
@@ -76,3 +94,4 @@ simulate(13)
 simulate(15)
 simulate(17)
 simulate(19)
+periodlengths()
